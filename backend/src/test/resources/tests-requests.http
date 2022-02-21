@@ -1,0 +1,18 @@
+###
+# @name Get All Elements
+GET http://localhost:8080/stock
+
+###
+# @name Get An Element
+GET http://localhost:8080/stock/2
+
+###
+# @name Add An Element
+PUT http://localhost:8080/stock
+Content-Type: application/json
+
+{"label": "orange", "color": "orange"}
+
+###
+# @name Delete An Element
+DELETE http://localhost:8080/stock/1

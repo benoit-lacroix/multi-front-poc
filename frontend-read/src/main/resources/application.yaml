@@ -1,0 +1,6 @@
+back-end:
+  url: http://localhost
+  port: 8080
+  context: /stock
+server:
+  port: 8081

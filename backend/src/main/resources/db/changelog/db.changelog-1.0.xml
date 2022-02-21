@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1.0-ddl" author="blacroix">
+
+        <createTable tableName="stock">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"
+                             primaryKeyName="pk_stock"/>
+            </column>
+
+            <column name="label" type="varchar2(50)">
+                <constraints nullable="false"
+                             notNullConstraintName="nn_stock_label"/>
+            </column>
+
+            <column name="color" type="varchar2(50)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="1.0-data" author="blacroix">
+        <insert tableName="stock">
+            <column name="label" value="banana"/>
+            <column name="color" value="yellow"/>
+        </insert>
+
+        <insert tableName="stock">
+            <column name="label" value="raspberry"/>
+            <column name="color" value="raspberry"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
