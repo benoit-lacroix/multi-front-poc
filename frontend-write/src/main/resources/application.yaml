@@ -1,7 +1,14 @@
 back-end: http://localhost:8080/stock
-read-end: http://localhost:8081/
+api-key: my-Fake-BackEnd-ApiKey
+
+read-end: http://localhost:8081/read
 server:
   port: 8082
 spring:
   application:
     name: Write Front
+keycloak:
+  auth-server-url: http://localhost:8090/auth
+  realm: multi-front-poc
+  resource: write-front
+  public-client: true

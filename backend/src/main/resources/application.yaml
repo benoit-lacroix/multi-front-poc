@@ -10,3 +10,4 @@ spring:
         database-platform: org.hibernate.dialect.H2Dialect
 server:
   port: 8080
+api-key: my-Fake-BackEnd-ApiKey
