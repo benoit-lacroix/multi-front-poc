@@ -3,7 +3,6 @@ package fr.blacroix.poc.multifront.frontendread.service;
 import fr.blacroix.poc.multifront.frontendread.dto.Stock;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -20,22 +19,14 @@ public class BackConsumer {
 
     private final RestTemplate restTemplate;
 
-    @Value("back-end.url")
+    @Value("${back-end}")
     private String backEndUrl;
 
-    @Value("back-end.port")
-    private String backEndPort;
-
-    @Value("back-end.context")
-    private String backEndContext;
-
     public List<Stock> getStock() {
-        String url = backEndUrl + backEndPort + backEndContext;
-        url = "http://localhost:8080/stock";
-        log.info("Backend url: {}", url);
+        log.info("Backend url: {}", backEndUrl);
         ParameterizedTypeReference<List<Stock>> responseType = new ParameterizedTypeReference<>() {
         };
-        ResponseEntity<List<Stock>> resp = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
+        ResponseEntity<List<Stock>> resp = restTemplate.exchange(backEndUrl, HttpMethod.GET, null, responseType);
         return resp.getBody();
     }
 

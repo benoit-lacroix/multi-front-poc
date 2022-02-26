@@ -1,0 +1,45 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${@environment.getProperty('spring.application.name')}"></title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<h1 th:text="${@environment.getProperty('spring.application.name')}"></h1>
+
+<a th:href="${@environment.getProperty('read-end')}">Read Front</a>
+
+<form action="#" th:action="@{/add}" th:object="${stock}" method="post">
+    <fieldset>
+        <label for="label">Item Label</label>
+        <input type="text" id="label" name="label" th:value="*{label}"/>
+        <label for="color">Item Color</label>
+        <input type="text" id="color" name="color" th:value="*{color}" />
+
+        <input type="submit" value="Add" />
+    </fieldset>
+</form>
+
+<form action="#" th:action="@{/delete}" th:object="${stock}" method="post">
+    <fieldset>
+        <label for="id">Id to delete</label>
+        <input type="text" id="id" name="id" th:value="*{id}" />
+
+        <input type="submit" value="Delete"/>
+    </fieldset>
+</form>
+
+<h2>Result</h2>
+
+<p th:text="${result}"></p>
+</body>
+</html>

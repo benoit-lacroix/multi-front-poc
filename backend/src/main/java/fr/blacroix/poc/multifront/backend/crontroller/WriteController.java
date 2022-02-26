@@ -13,7 +13,7 @@ public class WriteController extends AbstractController {
 
     private final StockService stockService;
 
-    @PutMapping("/stock")
+    @PostMapping("/stock")
     public String addStock(@RequestBody StockDto dto) {
         if (dto == null || dto.getId() != null || dto.getLabel() == null) {
             log.error("Malformed received dto: {}", dto.toString());

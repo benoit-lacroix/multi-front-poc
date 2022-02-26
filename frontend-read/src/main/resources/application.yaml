@@ -1,6 +1,7 @@
-back-end:
-  url: http://localhost
-  port: 8080
-  context: /stock
+back-end: http://localhost:8080/stock
+write-end: http://localhost:8082/
 server:
   port: 8081
+spring:
+  application:
+    name: Read Front
